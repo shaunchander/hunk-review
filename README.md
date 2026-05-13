@@ -1,3 +1,5 @@
+<img width="1083" height="841" alt="Screenshot 2026-05-13 at 4 38 43 PM" src="https://github.com/user-attachments/assets/2f87c2ce-b011-4e77-95e4-4bbec6044071" />
+
 <h1 align="center">🔍 hunk-review.nvim</h1> <p align="center">A lightweight, keyboard-driven code review plugin for Neovim.<br/>Built for reviewing AI-generated code before it hits your codebase.</p>
 
 Coding agents and LLMs can write a lot of code fast — but someone still needs to review it. hunk-review.nvim gives you a focused, distraction-free environment to walk through every change, annotate what needs fixing, and export structured feedback that agents can act on. No context-switching to a browser, no PR UI overhead. Just you, the diff, and your keyboard.
