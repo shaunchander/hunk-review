@@ -86,21 +86,31 @@ local function close_layout()
 
   if state.layout then
     pcall(function()
-      state.layout:close({ buf = false })
+      state.layout:close()
     end)
     state.layout = nil
+  else
+    if state.explorer_winid and api.nvim_win_is_valid(state.explorer_winid) then
+      pcall(api.nvim_win_close, state.explorer_winid, true)
+    end
+    if state.review_winid and api.nvim_win_is_valid(state.review_winid) then
+      pcall(api.nvim_win_close, state.review_winid, true)
+    end
   end
 
-  if state.explorer_winid and api.nvim_win_is_valid(state.explorer_winid) then
-    pcall(api.nvim_win_close, state.explorer_winid, true)
+  if state.explorer_bufnr and api.nvim_buf_is_valid(state.explorer_bufnr) then
+    pcall(api.nvim_buf_delete, state.explorer_bufnr, { force = true })
   end
-
-  if state.review_winid and api.nvim_win_is_valid(state.review_winid) then
-    pcall(api.nvim_win_close, state.review_winid, true)
+  if state.review_bufnr and api.nvim_buf_is_valid(state.review_bufnr) then
+    pcall(api.nvim_buf_delete, state.review_bufnr, { force = true })
   end
 
   state.explorer_winid = nil
   state.review_winid = nil
+  state.explorer_bufnr = nil
+  state.review_bufnr = nil
+  state.line_mode = false
+  syntax.clear_cache()
 end
 
 local function current_file_entries()
