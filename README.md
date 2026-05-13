@@ -16,7 +16,7 @@ Coding agents and LLMs can write a lot of code fast — but someone still needs 
 Install with [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```lua
 {
-  "shaunchander/hunk-review",
+  "shaunchander/hunk-review.nvim",
   opts = {},
 }
 ```
